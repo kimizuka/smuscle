@@ -7,8 +7,8 @@ export default {
   },
 
   router: {
-    mode: "hash"
-    // base: __dirname + '/electron/'
+    mode: "hash",
+    base: '/smuscle/'
   },
   /*
   ** Headers of the page
