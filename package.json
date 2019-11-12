@@ -1,0 +1,32 @@
+{
+  "name": "smuscle",
+  "version": "1.0.0",
+  "main": "app.js",
+  "description": "My sublime Nuxt.js project",
+  "author": "kimizuka",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "electron": "electron .",
+    "electron-build": "electron-packager . 💪😄 --platform=darwin --arch=x64"
+  },
+  "dependencies": {
+    "electron": "^7.1.1",
+    "face-api.js": "^0.21.0",
+    "nuxt": "^2.10.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^0.3.4",
+    "@nuxt/typescript-build": "^0.3.4",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@types/webgl2": "0.0.5",
+    "electron-packager": "^14.1.0",
+    "node-sass": "^4.13.0",
+    "nuxt-property-decorator": "^2.5.0",
+    "sass-loader": "^8.0.0"
+  }
+}
