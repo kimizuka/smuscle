@@ -79,7 +79,7 @@ export default {
   ],
 
   generate: {
-    dir: 'public'
+    dir: 'docs'
   },
   /*
   ** Build configuration

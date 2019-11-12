@@ -12,7 +12,7 @@ request({
     const server = express();
     const http = require('http').Server(server);
 
-    server.use('/', express.static(`${__dirname}/public`));
+    server.use('/', express.static(`${__dirname}/docs`));
 
     http.listen(3000, '0.0.0.0');
   }
