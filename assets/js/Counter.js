@@ -3,7 +3,7 @@ export default class Counter {
   static isReady = false;
   static point = 0;
   static bonus = 0;
-  static INTERVAL = 500;
+  static INTERVAL = 600;
 
   static reset() {
     this.updateTime = Date.now();
