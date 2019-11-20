@@ -6,6 +6,7 @@
     >
       <video
         ref="video"
+        playsinline="true"
         autoplay
         muted
         @loadeddata="handleLoad"
