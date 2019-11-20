@@ -91,3 +91,8 @@ sw.*
 
 # app
 💪😄-darwin-x64
+
+#key
+*.key
+*.csr
+*.crt
