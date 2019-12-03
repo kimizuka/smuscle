@@ -103,16 +103,29 @@
 
     @Watch('currentPoint')
     handleChangeCount(newPoint: number, oldPoint: number) {
+      const DURATION = 800;
+      let startTime = null;
+      let progress = 0;
+
       this.diffPoint = Math.max(newPoint - oldPoint, 0);
 
       this.$emit('count', this.diffPoint);
 
       if (this.diffPoint > 1) {
-        const render = () => {
+        const render = (delta) => {
+          if (delta) {
+            if (!startTime) {
+              startTime = delta;
+            }
+
+            progress = (delta - startTime) / DURATION;
+          }
+
           if (newPoint > this.displayPoint) {
-            this.displayPoint += 1;
+            this.displayPoint = oldPoint + ((newPoint - oldPoint) * progress) | 0;
             requestAnimationFrame(render);
           } else {
+            startTime = null;
             this.timerFlag = false;
             this.displayPoint = newPoint;
           }
