@@ -104,7 +104,7 @@
     @Watch('currentPoint')
     handleChangeCount(newPoint: number, oldPoint: number) {
       const DURATION = 800;
-      let startTime = null;
+      let startTime: number | null = null;
       let progress = 0;
 
       this.diffPoint = Math.max(newPoint - oldPoint, 0);
@@ -112,7 +112,7 @@
       this.$emit('count', this.diffPoint);
 
       if (this.diffPoint > 1) {
-        const render = (delta) => {
+        const render = (delta: number = 0) => {
           if (delta) {
             if (!startTime) {
               startTime = delta;
