@@ -14,7 +14,6 @@ export default {
   },
 
   router: {
-    // base: '/smuscle/',
     mode: "hash"
   },
   /*
