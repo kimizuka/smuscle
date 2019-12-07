@@ -55,7 +55,7 @@ app.on('ready', () => {
       webPreferences: {
         nodeIntegration: true
       },
-      // fullscreen: true,
+      fullscreen: true,
       frame: true,
       kiosk: false
     });
