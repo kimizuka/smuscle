@@ -6,7 +6,7 @@
     >
       <hgroup>
         <h1 class="ttl-main">💪😄</h1>
-        <h2 class="ttl-sub">10. Muscle & Smile</h2>
+        <h2 class="ttl-sub">26. Muscle & Smile</h2>
       </hgroup>
       <p class="name">Fumitaka KIMIZUKA（@ki_230）</p>
     </div>
@@ -16,6 +16,7 @@
     >
       <game-window
         @count="handleCountUp"
+        @pointup="handlePointup"
         :is-smile-mode="isSmileMode"
         ref="gameWindow"
       />
@@ -37,17 +38,19 @@
         width="300"
         height="300"
       />
-      <span>https://kimizuka.github.io/smuscle/</span>
-      <small>※ 現在iOS調整中</small>
+      <span>https://smile.kimizuka.fm</span>
     </p>
   </div>
 </template>
 
 <script lang="ts">
   import * as faceapi from 'face-api.js';
+  import io from 'socket.io-client';
   import { Component, Vue } from 'vue-property-decorator';
   import GameWindow from '~/components/organisms/GameWindow.vue';
   import Story from '~/assets/js/Story.js';
+
+  const socket = io('http://localhost:3000');
 
   @Component({
     components: {
@@ -57,7 +60,7 @@
   export default class Keynote extends Vue {
     msgIndex: number = 0;
     msgFontSize: number = 72;
-    msgBottom: number = 104;
+    msgBottom: number = 120;
     isSmileMode: boolean = false;
     isWipeMode: boolean = true;
     isQrMode: boolean = false;
@@ -74,7 +77,7 @@
           this.handleCountUp(2);
           break;
         case 'ArrowUp':
-          this.handleCountDown();
+          this.handleCountUpDown();
           break;
         case 'ArrowLeft':
           this.msgFontSize -= 8;
@@ -89,26 +92,44 @@
       }
     }
 
-    handleCountDown() {
+    handleCountUpDown() {
       this.msgIndex = Math.max(this.msgIndex - 1, 0);
       this.showMsg();
     }
 
     handleCountUp(point: number) {
-
       if (!this.isSmileMode || point > 1) {
+        socket.emit('count');
         this.msgIndex = Math.min(this.msgIndex + 1, Story.length - 1);
         this.showMsg();
       }
     }
 
+    handlePointup() {
+      socket.emit('pointup');
+    }
+
     showMsg() {
-      const msg: Element = this.$refs.msg as Element;
+      const msg: HTMLElement = this.$refs.msg as HTMLElement;
 
       msg.innerHTML = Story[this.msgIndex];
+      socket.emit('msg', removeEmoji(msg.innerText));
+
       this.isSmileMode = !!msg.querySelector('[data-smile="true"]');
       this.isWipeMode = !!msg.querySelector('[data-wipe="true"]');
       this.isQrMode = !!msg.querySelector('[data-qr="true"]');
+
+      function removeEmoji(txt: string):string {
+        const ranges = [
+          '\ud83c[\udf00-\udfff]',
+          '\ud83d[\udc00-\ude4f]',
+          '\ud83d[\ude80-\udeff]',
+          '\ud7c9[\ude00-\udeff]',
+          '[\u2600-\u27BF]'
+        ];
+
+        return txt.replace(new RegExp(ranges.join('|'), 'g'), '');
+      }
     }
 
     mounted() {
@@ -122,6 +143,10 @@
 </script>
 
 <style lang="scss" scoped>
+  .keynote {
+    cursor: none;
+  }
+
   .wipe {
     position: absolute;
     top: 0; right: 0;
@@ -149,7 +174,7 @@
   }
 
   .ttl-sub {
-    font-size: 80px;
+    font-size: 72px;
     -webkit-text-stroke: #fff 4px;
   }
 

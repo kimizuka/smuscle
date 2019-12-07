@@ -123,6 +123,7 @@
 
           if (newPoint > this.displayPoint) {
             this.displayPoint = oldPoint + ((newPoint - oldPoint) * progress) | 0;
+            this.$emit('pointup');
             requestAnimationFrame(render);
           } else {
             startTime = null;

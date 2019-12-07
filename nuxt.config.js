@@ -5,10 +5,10 @@ export default {
   mode: 'spa',
 
   server: {
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'https/server.key')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'https/server.crt'))
-    },
+    // https: {
+    //   key: fs.readFileSync(path.resolve(__dirname, 'https/server.key')),
+    //   cert: fs.readFileSync(path.resolve(__dirname, 'https/server.crt'))
+    // },
     port: 3000,
     host: '0.0.0.0'
   },

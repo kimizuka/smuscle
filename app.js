@@ -1,6 +1,7 @@
 const electron = require('electron');
 const request = require('request');
 const express = require('express');
+const exec = require('child_process').exec;
 const { app, ipcMain, BrowserWindow } = require('electron');
 const DELAY = 500;
 
@@ -8,9 +9,24 @@ request({
   url: 'http://localhost:3000',
   method: 'GET'
 }, (err, res, body) => {
-  if (err) {
+  if (err && err.code === 'ECONNREFUSED') {
     const server = express();
     const http = require('http').Server(server);
+    const io = require('socket.io').listen(http);
+
+    io.on('connection', (socket) => {
+      socket.on('msg', (msg) => {
+        exec(`say ${msg}`, (err, stdout, stderr) => {});
+      });
+
+      socket.on('count', (msg) => {
+        exec(`afplay ${__dirname}/audio/oh.mp3`, (err, stdout, stderr) => {});
+      });
+
+      socket.on('pointup', (msg) => {
+        exec(`afplay ${__dirname}/audio/point.mp3`, (err, stdout, stderr) => {});
+      });
+    });
 
     server.use('/', express.static(`${__dirname}/docs`));
 
@@ -39,7 +55,7 @@ app.on('ready', () => {
       webPreferences: {
         nodeIntegration: true
       },
-      fullscreen: true,
+      // fullscreen: true,
       frame: true,
       kiosk: false
     });
@@ -48,6 +64,6 @@ app.on('ready', () => {
       app.quit();
     });
 
-    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.loadURL('http://localhost:3000/#/keynote');
   }, DELAY);
 });
