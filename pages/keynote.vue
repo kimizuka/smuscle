@@ -6,7 +6,7 @@
     >
       <hgroup>
         <h1 class="ttl-main">💪😄</h1>
-        <h2 class="ttl-sub">26. Muscle & Smile</h2>
+        <h2 class="ttl-sub">Muscle & Smile</h2>
       </hgroup>
       <p class="name">Fumitaka KIMIZUKA（@ki_230）</p>
     </div>
@@ -84,6 +84,13 @@
           break;
         case 'ArrowRight':
           this.msgFontSize += 8;
+          break;
+        case 'p':
+          this.$router.push('/');
+          break;
+        case 'd':
+          this.msgIndex = 116;
+          this.handleCountUp(2);
           break;
         case ' ':
           this.msgIndex = 0;

@@ -64,6 +64,6 @@ app.on('ready', () => {
       app.quit();
     });
 
-    mainWindow.loadURL('http://localhost:3000/#/keynote');
+    mainWindow.loadURL('http://localhost:3000/');
   }, DELAY);
 });

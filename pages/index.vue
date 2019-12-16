@@ -25,6 +25,22 @@
 
       return /iphone|ipad|ipod|android/.test(ua);
     }
+
+    handleKeyDown(evt: any) {
+      switch (evt.key) {
+        case 'p':
+          this.$router.push('/keynote');
+          break;
+      }
+    }
+
+    mounted() {
+      window.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    beforeDestroy() {
+      window.removeEventListener('keydown', this.handleKeyDown);
+    }
   }
 </script>
 
