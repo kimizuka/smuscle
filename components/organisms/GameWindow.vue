@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      :style="{ transform: `scale(${screenScale})` }"
+      :style="{ transform: `scale(${ screenScale })` }"
       class="wrapper"
     >
       <video
@@ -13,6 +13,10 @@
       />
       <canvas ref="canvas" />
     </div>
+    <p
+      :data-is-smile-mode="isSmileMode"
+      class="smile-mode"
+    />
     <div
       :data-is-smile="smilePoint > 0"
       class="point-box"
@@ -258,6 +262,33 @@
     top: 50%; left: 50%;
   }
 
+  .smile-mode {
+    position: absolute;
+    top: 40px; left: 40px;
+    font-size: 40px;
+    -webkit-text-stroke: #FFF 2px;
+
+    &:before {
+      color: #000;
+      font-size: 32px;
+      content: 'SMILE BONUS : ';
+    }
+
+    &:after {
+      color: #FFF;
+      content: 'OFF';
+      -webkit-text-stroke: #000 2px;
+    }
+
+    &[data-is-smile-mode='true'] {
+      &:after {
+        color: #E91E63;
+        content: 'ON';
+        -webkit-text-stroke: #FFF 2px;
+      }
+    }
+  }
+
   video,
   canvas {
     display: block;
@@ -325,20 +356,20 @@
 
     &[data-is-smile] {
       .current {
-        text-shadow: 0 0 32px #fff;
+        text-shadow: 0 0 32px #FFF;
       }
 
       .diff {
         color: rgba(255, 211, 44, 1);
         font-size: 80px;
-        text-shadow: 0 0 16px #fff;
-        -webkit-text-stroke: #fff 4px;
+        text-shadow: 0 0 16px #FFF;
+        -webkit-text-stroke: #FFF 4px;
 
         &:after {
           display: block;
           font-size: 40px;
           content: 'Smile Bonus !';
-          -webkit-text-stroke: #fff 2px;
+          -webkit-text-stroke: #FFF 2px;
         }
       }
     }
@@ -347,7 +378,7 @@
   .point {
     position: relative;
     width: 344px;
-    color: #fff;
+    color: #FFF;
     font-size: 120px;
     text-align: center;
     -webkit-text-stroke: #000 4px;
@@ -367,7 +398,7 @@
     .current {
       color: #000;
       transition: all .2s ease-in-out;
-      -webkit-text-stroke: #fff 4px;
+      -webkit-text-stroke: #FFF 4px;
 
       &[data-is-timer] {
         transform: scale(1.1);
@@ -375,7 +406,7 @@
     }
 
     .diff {
-      color: #fff;
+      color: #FFF;
       font-size: 64px;
       opacity: 0;
       transition: all .2s ease-in-out;
