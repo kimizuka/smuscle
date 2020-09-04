@@ -29,7 +29,7 @@
     "@types/socket.io-client": "^1.4.32",
     "@types/webgl2": "0.0.5",
     "electron-packager": "^14.1.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "nuxt-property-decorator": "^2.5.0",
     "sass-loader": "^8.0.0"
   }
