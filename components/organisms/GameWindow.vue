@@ -232,8 +232,22 @@
     }
 
     async mounted() {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: {
-        facingMode: 'user'
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      let webcamId = '';
+      let faceTimeId = '';
+
+      devices.forEach((device) => {
+        if (device.kind === 'videoinput') {
+          if (device.label.includes('HD Pro Webcam')) {
+            webcamId = device.deviceId;
+          } else if (device.label.includes('FaceTime')) {
+            faceTimeId = device.deviceId;
+          }
+        }
+      });
+
+      const stream = await navigator.mediaDevices.getUserMedia({video: {
+        deviceId: webcamId || faceTimeId,
       }});
       const modelpath = 'https://justadudewhohacks.github.io/face-api.js/models';
 
