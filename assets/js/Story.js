@@ -54,7 +54,7 @@ export default [
   '<span data-qr="false" data-smile="true" data-wipe="false"><strong>たのしく</strong>腹筋しているように見えませんか？</span>',
   '<span data-qr="false" data-smile="true" data-wipe="false">実際に体験いただくとわかるのですが</span>',
   '<span data-qr="false" data-smile="true" data-wipe="false">かなり<strong>たのしくなります 😄</strong></span>',
-  '<span data-qr="false" data-smile="true" data-wipe="false">まだ開発中ではありますが</span>',
+  '<span data-qr="false" data-smile="true" data-wipe="false">まだ荒はありますが</span>',
   '<span data-qr="true" data-smile="true" data-wipe="false">こちらのQRコードから体験できますので</span>',
   '<span data-qr="true" data-smile="true" data-wipe="false">是非試してみてください 💪</span>',
   // '<span data-qr="true" data-smile="true" data-wipe="true">プレゼンは以上です</span>',
