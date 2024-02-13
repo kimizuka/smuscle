@@ -266,7 +266,11 @@
     position: absolute;
     top: 40px; left: 40px;
     font-size: 40px;
-    -webkit-text-stroke: #FFF 2px;
+    text-shadow: #FFF -2px 0 0,
+                 #FFF 2px 0 0,
+                 #FFF 0 -2px 0,
+                 #FFF 0 2px 0;
+    /* -webkit-text-stroke: #FFF 2px; */
 
     &:before {
       color: #000;
@@ -277,14 +281,22 @@
     &:after {
       color: #FFF;
       content: 'OFF';
-      -webkit-text-stroke: #000 2px;
+      text-shadow: #000 -2px 0 0,
+              #000 2px 0 0,
+              #000 0 -2px 0,
+              #000 0 2px 0;
+      /* -webkit-text-stroke: #000 2px; */
     }
 
     &[data-is-smile-mode='true'] {
       &:after {
         color: #E91E63;
         content: 'ON';
-        -webkit-text-stroke: #FFF 2px;
+        text-shadow: #FFF -2px 0 0,
+              #FFF 2px 0 0,
+              #FFF 0 -2px 0,
+              #FFF 0 2px 0;
+        /* -webkit-text-stroke: #FFF 2px; */
       }
     }
   }
@@ -362,14 +374,22 @@
       .diff {
         color: rgba(255, 211, 44, 1);
         font-size: 80px;
-        text-shadow: 0 0 16px #FFF;
-        -webkit-text-stroke: #FFF 4px;
+        text-shadow: 0 0 16px #FFF,
+                   #FFF -2px 0 0,
+                   #FFF 2px 0 0,
+                   #FFF 0 -2px 0,
+                   #FFF 0 2px 0;
+        /* -webkit-text-stroke: #FFF 4px; */
 
         &:after {
           display: block;
           font-size: 40px;
           content: 'Smile Bonus !';
-          -webkit-text-stroke: #FFF 2px;
+          text-shadow: #FFF -2px 0 0,
+                       #FFF 2px 0 0,
+                       #FFF 0 -2px 0,
+                       #FFF 0 2px 0;
+          /* -webkit-text-stroke: #FFF 2px; */
         }
       }
     }
@@ -381,7 +401,11 @@
     color: #FFF;
     font-size: 120px;
     text-align: center;
-    -webkit-text-stroke: #000 4px;
+    text-shadow: #000 -2px 0 0,
+                 #000 2px 0 0,
+                 #000 0 -2px 0,
+                 #000 0 2px 0;
+    /* -webkit-text-stroke: #000 4px; */
 
     &[data-is-anim] {
       .current {
@@ -398,7 +422,11 @@
     .current {
       color: #000;
       transition: all .2s ease-in-out;
-      -webkit-text-stroke: #FFF 4px;
+      text-shadow: #FFF -2px 0 0,
+                   #FFF 2px 0 0,
+                   #FFF 0 -2px 0,
+                   #FFF 0 2px 0;
+      /* -webkit-text-stroke: #FFF 4px; */
 
       &[data-is-timer] {
         transform: scale(1.1);
@@ -410,7 +438,11 @@
       font-size: 64px;
       opacity: 0;
       transition: all .2s ease-in-out;
-      -webkit-text-stroke: #000 4px;
+      text-shadow: #000 -2px 0 0,
+                   #000 2px 0 0,
+                   #000 0 -2px 0,
+                   #000 0 2px 0;
+      /* -webkit-text-stroke: #000 4px; */
 
       &[data-is-show] {
         animation: bonus 2.4s ease-in-out;

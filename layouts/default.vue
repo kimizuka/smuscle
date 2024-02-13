@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background: radial-gradient(#000, #fff);
+  background: radial-gradient(#000, #FFF);
   background-size: 4px 4px;
 }
 </style>

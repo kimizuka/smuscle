@@ -48,10 +48,10 @@
     left: 0; right: 0;
     bottom: 0px;
     margin: auto;
-    color: #fff;
+    color: #FFF;
     font-size: 80px;
     text-align: center;
-    -webkit-text-stroke: #000 4px;
+    /* -webkit-text-stroke: #000 4px; */
     animation: blink 4s ease-in-out infinite;
   }
 
@@ -62,7 +62,7 @@
 
     .btn {
       font-size: 40px;
-      -webkit-text-stroke: #000 2px;
+      /* -webkit-text-stroke: #000 2px; */
     }
   }
 </style>

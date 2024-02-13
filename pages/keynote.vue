@@ -182,13 +182,13 @@
 
   .ttl-sub {
     font-size: 72px;
-    -webkit-text-stroke: #fff 4px;
+    /* -webkit-text-stroke: #FFF 4px; */
   }
 
   .name {
     margin-top: 40px;
     font-size: 40px;
-    -webkit-text-stroke: #fff 2px;
+    /* -webkit-text-stroke: #FFF 2px; */
   }
 
   .msg {
@@ -196,12 +196,12 @@
     bottom: 64px;
     left: 8px; right: 8px;
     margin: 0;
-    color: #fff;
+    color: #FFF;
     font: 72px 'Noto Sans JP';
     font-weight: 900;
     text-align: center;
-    text-shadow: 0 0 8px #fff;
-    -webkit-text-stroke: 4px #000;
+    text-shadow: 0 0 8px #FFF;
+    /* -webkit-text-stroke: 4px #000; */
   }
 
   .qr {
@@ -216,16 +216,16 @@
       margin-top: 24px;
       padding: 8px;
       font-size: 24px;
-      background: #fff;
+      background: #FFF;
     }
 
     small {
       display: block;
       margin-top: 24px;
-      color: #fff;
+      color: #FFF;
       font-size: 24px;
       font-weight: 900;
-      -webkit-text-stroke: 1px #000;
+      /* -webkit-text-stroke: 1px #000; */
 
     }
 

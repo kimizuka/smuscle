@@ -73,7 +73,11 @@
 
   .ttl-sub {
     font-size: 40px;
-    -webkit-text-stroke: #fff 2px;
+    text-shadow: #FFF -2px 0 0,
+                 #FFF 2px 0 0,
+                 #FFF 0 -2px 0,
+                 #FFF 0 2px 0;
+    /* -webkit-text-stroke: #FFF 2px; */
   }
 
   .btn {
@@ -81,10 +85,14 @@
     left: 0; right: 0;
     bottom: 0px;
     margin: auto;
-    color: #fff;
+    color: #FFF;
     font-size: 80px;
     text-align: center;
-    -webkit-text-stroke: #000 4px;
+    text-shadow: #000 -2px 0 0,
+                 #000 2px 0 0,
+                 #000 0 -2px 0,
+                 #000 0 2px 0;
+    /* -webkit-text-stroke: #000 4px; */
     animation: blink 4s ease-in-out infinite;
   }
 
@@ -99,12 +107,12 @@
 
     .ttl-sub {
       font-size: 24px;
-      -webkit-text-stroke: #fff 1px;
+      /* -webkit-text-stroke: #FFF 1px; */
     }
 
     .btn {
       font-size: 40px;
-      -webkit-text-stroke: #000 2px;
+      /* -webkit-text-stroke: #000 2px; */
     }
   }
 </style>
