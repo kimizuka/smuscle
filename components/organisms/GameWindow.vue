@@ -382,7 +382,11 @@
 
     &[data-is-smile] {
       .current {
-        text-shadow: 0 0 32px #FFF;
+        text-shadow: 0 0 32px #FFF,
+                   #FFF -2px 0 0,
+                   #FFF 2px 0 0,
+                   #FFF 0 -2px 0,
+                   #FFF 0 2px 0;
       }
 
       .diff {
