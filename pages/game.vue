@@ -14,11 +14,11 @@
 
   // const socket = io('http://localhost:3000');
 
-  const count: any = new Howl({
+  const count = new Howl({
     src: ['/audio/oh.mp3']
   });
-  
-  const point: any = new Howl({
+
+  const point = new Howl({
     src: ['/audio/point.mp3']
   });
 
