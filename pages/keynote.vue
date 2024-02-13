@@ -44,13 +44,23 @@
 </template>
 
 <script lang="ts">
-  import * as faceapi from 'face-api.js';
-  import io from 'socket.io-client';
+  // import * as faceapi from 'face-api.js';
+  // import io from 'socket.io-client';
+  //@ts-ignore
+  import { Howl } from 'howler';
   import { Component, Vue } from 'vue-property-decorator';
   import GameWindow from '~/components/organisms/GameWindow.vue';
   import Story from '~/assets/js/Story.js';
 
-  const socket = io('http://localhost:3000');
+  // const socket = io('http://localhost:3000');
+
+  const count = new Howl({
+    src: ['/audio/oh.mp3']
+  });
+  
+  const point = new Howl({
+    src: ['/audio/point.mp3']
+  });
 
   @Component({
     components: {
@@ -106,21 +116,28 @@
 
     handleCountUp(point: number) {
       if (!this.isSmileMode || point > 1) {
-        socket.emit('count');
+        count.play();
+        // socket.emit('count');
         this.msgIndex = Math.min(this.msgIndex + 1, Story.length - 1);
         this.showMsg();
       }
     }
 
     handlePointup() {
-      socket.emit('pointup');
+      point.play();
+      // socket.emit('pointup');
     }
 
     showMsg() {
       const msg: HTMLElement = this.$refs.msg as HTMLElement;
+      const utterThis = new SpeechSynthesisUtterance();
 
       msg.innerHTML = Story[this.msgIndex];
-      socket.emit('msg', removeEmoji(msg.innerText));
+      utterThis.text = removeEmoji(msg.innerText);
+
+      speechSynthesis.speak(utterThis);
+
+      // socket.emit('msg', removeEmoji(msg.innerText));
 
       this.isSmileMode = !!msg.querySelector('[data-smile="true"]');
       this.isWipeMode = !!msg.querySelector('[data-wipe="true"]');
@@ -182,12 +199,20 @@
 
   .ttl-sub {
     font-size: 72px;
+    text-shadow: #FFF -2px 0 0,
+                 #FFF 2px 0 0,
+                 #FFF 0 -2px 0,
+                 #FFF 0 2px 0;
     /* -webkit-text-stroke: #FFF 4px; */
   }
 
   .name {
     margin-top: 40px;
     font-size: 40px;
+    text-shadow: #FFF -2px 0 0,
+                 #FFF 2px 0 0,
+                 #FFF 0 -2px 0,
+                 #FFF 0 2px 0;
     /* -webkit-text-stroke: #FFF 2px; */
   }
 
@@ -200,7 +225,11 @@
     font: 72px 'Noto Sans JP';
     font-weight: 900;
     text-align: center;
-    text-shadow: 0 0 8px #FFF;
+    text-shadow: 0 0 8px rgba(255, 255, 255, .4),
+               #000 -2px 0 0,
+               #000 2px 0 0,
+               #000 0 -2px 0,
+               #000 0 2px 0;
     /* -webkit-text-stroke: 4px #000; */
   }
 
@@ -225,6 +254,10 @@
       color: #FFF;
       font-size: 24px;
       font-weight: 900;
+      text-shadow: #000 -2px 0 0,
+                   #000 2px 0 0,
+                   #000 0 -2px 0,
+                   #000 0 2px 0;
       /* -webkit-text-stroke: 1px #000; */
 
     }
