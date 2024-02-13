@@ -43,8 +43,6 @@ and limitations under the License.
  * @license  MIT
  */
 
-/*! https://mths.be/utf8js v2.1.2 by @mathias */
-
 /*!
  * vue-no-ssr v1.1.1
  * (c) 2018-present egoist <0x142857@gmail.com>
@@ -68,3 +66,27 @@ and limitations under the License.
   * (c) 2019 Evan You
   * @license MIT
   */
+
+/*!
+ *  howler.js v2.2.4
+ *  howlerjs.com
+ *
+ *  (c) 2013-2020, James Simpson of GoldFire Studios
+ *  goldfirestudios.com
+ *
+ *  MIT License
+ */
+
+/*!
+ *  Spatial Plugin - Adds support for stereo and 3D audio where Web Audio is supported.
+ *  
+ *  howler.js v2.2.4
+ *  howlerjs.com
+ *
+ *  (c) 2013-2020, James Simpson of GoldFire Studios
+ *  goldfirestudios.com
+ *
+ *  MIT License
+ */
+
+/*! https://mths.be/utf8js v2.1.2 by @mathias */

@@ -7,11 +7,20 @@
 </template>
 
 <script lang="ts">
-  import io from 'socket.io-client';
+  //@ts-ignore
+  import { Howl } from 'howler';
   import { Component, Vue } from 'vue-property-decorator';
   import GameWindow from '~/components/organisms/GameWindow.vue';
 
-  const socket = io('http://localhost:3000');
+  // const socket = io('http://localhost:3000');
+
+  const count: any = new Howl({
+    src: ['/audio/oh.mp3']
+  });
+  
+  const point: any = new Howl({
+    src: ['/audio/point.mp3']
+  });
 
   @Component({
     components: {
@@ -20,11 +29,13 @@
   })
   export default class Game extends Vue {
     handleCountUp(point: number) {
-      socket.emit('count');
+      count.play();
+      // socket.emit('count');
     }
 
     handlePointup() {
-      socket.emit('pointup');
+      point.play();
+      // socket.emit('pointup');
     }
 
     handleKeyDown(evt: any) {

@@ -12,21 +12,21 @@ request({
   if (err && err.code === 'ECONNREFUSED') {
     const server = express();
     const http = require('http').Server(server);
-    const io = require('socket.io').listen(http);
+    // const io = require('socket.io').listen(http);
 
-    io.on('connection', (socket) => {
-      socket.on('msg', (msg) => {
-        exec(`say ${msg}`, (err, stdout, stderr) => {});
-      });
+    // io.on('connection', (socket) => {
+    //   socket.on('msg', (msg) => {
+    //     exec(`say ${msg}`, (err, stdout, stderr) => {});
+    //   });
 
-      socket.on('count', (msg) => {
-        exec(`afplay ${__dirname}/audio/oh.mp3`, (err, stdout, stderr) => {});
-      });
+    //   socket.on('count', (msg) => {
+    //     exec(`afplay ${__dirname}/audio/oh.mp3`, (err, stdout, stderr) => {});
+    //   });
 
-      socket.on('pointup', (msg) => {
-        exec(`afplay ${__dirname}/audio/point.mp3`, (err, stdout, stderr) => {});
-      });
-    });
+    //   socket.on('pointup', (msg) => {
+    //     exec(`afplay ${__dirname}/audio/point.mp3`, (err, stdout, stderr) => {});
+    //   });
+    // });
 
     server.use('/', express.static(`${__dirname}/docs`));
 
