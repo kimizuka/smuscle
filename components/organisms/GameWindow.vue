@@ -480,11 +480,15 @@
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     .point-box {
       top: 10px; right: 10px;
       transform: scale(.6);
       transform-origin: right top;
+    }
+
+    .smile-mode {
+      display: none;
     }
   }
 </style>
