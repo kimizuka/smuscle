@@ -235,6 +235,7 @@
       const devices = await navigator.mediaDevices.enumerateDevices();
       let webcamId = '';
       let faceTimeId = '';
+      let deviceId = '';
 
       devices.forEach((device) => {
         if (device.kind === 'videoinput') {
@@ -246,9 +247,15 @@
         }
       });
 
-      const stream = await navigator.mediaDevices.getUserMedia({video: {
-        deviceId: webcamId || faceTimeId,
-      }});
+      deviceId = webcamId || faceTimeId;
+
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: deviceId ? {
+          deviceId
+        } : {
+          facingMode: 'user'
+        }
+      });
       const modelpath = 'https://justadudewhohacks.github.io/face-api.js/models';
 
       await faceapi.loadTinyFaceDetectorModel(modelpath);
