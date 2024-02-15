@@ -40,11 +40,11 @@ export default {
       { hid: 'twitter:title', property: 'twitter:title', content: '💪😄' || process.env.npm_package_name || '' },
       { hid: 'twitter:description', name: 'twitter:description', content: '顔認識を使って腹筋をカウントします ＾＾' || process.env.npm_package_description || '' },
       { hid: 'twitter:image:src', property: 'twitter:image:src', content: 'https://smile.kimizuka.fm/og.png' },
-      { hid: 'format-detection', property: 'format-detection', content: 'telephone=no' },
-      { hid: 'canonical', property: 'canonical', content: 'https://smile.kimizuka.fm' }
+      { hid: 'format-detection', property: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'canonical', href: 'https://smile.kimizuka.fm' }
     ]
   },
   /*
